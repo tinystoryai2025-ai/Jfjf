@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TinyStory.ai - Your Child Becomes the Hero</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+Bengali:wght@400;700&family=Poppins:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <style>
+      body {
+        font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
+        color: #e0e0ff;
+        background: #0a0a15;
+      }
+      .font-serif {
+        font-family: 'Lora', serif;
+      }
+      .story-text::first-letter {
+        font-size: 4em;
+        font-weight: bold;
+        float: left;
+        line-height: 0.75;
+        margin-right: 0.05em;
+        margin-top: 0.1em;
+        color: #4a5568;
+      }
+      .text-gradient {
+        background: linear-gradient(90deg, #ff6b9d, #8b46ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .glow-border {
+        box-shadow: 0 0 15px rgba(139, 70, 255, 0.5), 0 0 5px rgba(255, 107, 157, 0.5);
+      }
+      .btn-glow {
+        box-shadow: 0 0 25px rgba(139, 70, 255, 0.6), 0 0 25px rgba(255, 107, 157, 0.4);
+        transition: box-shadow .3s ease-in-out;
+      }
+      .btn-glow:hover {
+        box-shadow: 0 0 35px rgba(139, 70, 255, 0.8), 0 0 35px rgba(255, 107, 157, 0.6);
+      }
+      .card-glow:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 30px rgba(139, 70, 255, 0.7);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "next/": "https://aistudiocdn.com/next@^16.0.3/",
+    "jose": "https://aistudiocdn.com/jose@^6.1.1",
+    "@prisma/client": "https://aistudiocdn.com/@prisma/client@^6.19.0",
+    "bcryptjs": "https://aistudiocdn.com/bcryptjs@^3.0.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#0a0a15]">
+      <div class="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#8b46ff]"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+      setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+          preloader.style.opacity = '0';
+          preloader.style.transition = 'opacity 0.5s ease-out';
+          setTimeout(() => preloader.style.display = 'none', 500);
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>
